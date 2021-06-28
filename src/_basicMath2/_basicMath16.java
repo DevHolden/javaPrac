@@ -51,6 +51,8 @@ public class _basicMath16 {
 		int[] pN = new int[cnt];
 
 		int k = 0;
+		
+		// 해당하는 수에 대한 소수들을 pN이라는 행렬에 삽입.
 		for(int i = 0; i <= N; i++) {
 			if(primeList.get(i) == true ) {
 				pN[k] = i;
@@ -59,23 +61,33 @@ public class _basicMath16 {
 
 		}
 
+		
 		// 소수의 합으로 출력
 		int num1 = 0;
 		int num2 = 0;
+		int temp1 = 0;
+		int temp2 = 0;
+		int plus = 0;
+		int tempPlus = 10000;
 
-
-
-		for(int i = 0; i < cnt; i++) {
-			for (int j = 0; j < cnt; j++) {
-				if(pN[i] < pN[j]) {
-					if (pN[i] + pN[j] == N) {
-						
-						
+		for(int i = 0; i < pN.length; i++) {
+			for (int j = 0; j < pN.length; j++) {
+				if (pN[i] + pN[j] == N) {
+					if (pN[i] <= pN[j]) {
+						temp1 = pN[i];
+						temp2 = pN[j];
+						tempPlus = temp1 + temp2;
+						if (tempPlus < plus) {
+							plus = tempPlus;
+							num1 = temp1;
+							num2 = temp2;
+						}
 					}
 				}
 			}
 		}
-		System.out.println(num1 + " " + num2);
+		
+		System.out.println(temp1 + " " + temp2);
 
 	}
 
