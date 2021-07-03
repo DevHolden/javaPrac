@@ -1,7 +1,6 @@
 package _bruteForce;
 import java.io.*;
 // 브루트포스 : 분해합
-// 7/01
 public class _bruteForce2 {
 
 	public static void main(String[] args) throws NumberFormatException, IOException {
