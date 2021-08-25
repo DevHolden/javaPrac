@@ -12,47 +12,26 @@ public class _sort6 {
         StringBuilder sb = new StringBuilder();
 
         int N = Integer.parseInt(br.readLine());
-        int temp0 = 0;
-        int temp1 = 0;
         int[][] arr = new int[N][2];
 
-        for(int i = 0; i < N; i++) {
+        for (int i = 0; i < N; i++) {
             String[] str = br.readLine().split(" ");
-            arr[i][0] =Integer.parseInt(str[0]);
-            arr[i][1] =Integer.parseInt(str[1]);
+            arr[i][0] = Integer.parseInt(str[0]);
+            arr[i][1] = Integer.parseInt(str[1]);
         }
 
-        // 정렬
-        for(int i = 0; i < arr.length-1; i++) {
-            for(int j = i + 1; j < arr.length-1; j++) {
-                if(arr[i][0] > arr[j][0]) {
-                    temp0 = arr[i][0];
-                    temp1 = arr[i][1];
-                    arr[i][0] = arr[j][0];
-                    arr[i][1] = arr[j][1];
-                    arr[j][0] = temp0;
-                    arr[j][1] = temp1;
-                }
+        Arrays.sort(arr, (e1, e2) -> {
+            if(e1[0] == e2[0]) {
+                return e1[1] - e2[1];
+            } else {
+                return e1[0] - e2[0];
             }
+        });
 
+        for(int i = 0; i < N; i++) {
+            sb.append(arr[i][0] + " " + arr[i][1]).append('\n');
         }
 
-
-        for(int i = 0; i < arr.length-1; i++) {
-            if(arr[i][0] == arr[i+1][0]) {
-                if(arr[i][1] > arr[i+1][1]) {
-                    temp1 = arr[i][1];
-                    arr[i][1] = arr[i+1][1];
-                    arr[i+1][1] = temp1;
-                }
-            }
-        }
-
-        //출력
-        for(int i = 0; i < arr.length; i++) {
-            sb.append(arr[i][0] + " ");
-            sb.append(arr[i][1] + "\n");
-        }
         System.out.println(sb);
     }
 }
