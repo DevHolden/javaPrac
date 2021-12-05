@@ -27,6 +27,7 @@ public class _stack2 {
         while(!stack.empty()){
             sum += stack.pop();
         }
+
         System.out.println(sum);
     }
 }
